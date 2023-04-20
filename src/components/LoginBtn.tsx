@@ -1,4 +1,5 @@
 import { useSession, signIn, signOut } from "next-auth/react";
+import QrCode from "./QrCode";
 
 const LoginBtn = () => {
     const { data: session, status } = useSession();
@@ -22,6 +23,7 @@ const LoginBtn = () => {
                                 }}
                             />
                         </div>
+                        <QrCode url={session.user.image} />
                         <button onClick={() => signOut()}>Se déconnecter</button>
                     </div>
                 ) : (
